@@ -1,0 +1,193 @@
+{
+    "schema_version": "1.0",
+    "name": "tabular-lstm-evaluate",
+    "models": [
+        {
+            "synthetics": {
+                "privacy_filters": {
+                    "outliers": "auto",
+                    "similarity": "auto",
+                    "max_iterations": 10
+                },
+                "data_source": [
+                    "gretel_aaabe32519a743428addfd00cf040351_GLDS-347_rna_seq_bulkRNASeq_v1_runsheet (1).csv"
+                ],
+                "ref_data": {},
+                "params": {
+                    "field_delimiter": null,
+                    "epochs": 100,
+                    "batch_size": 64,
+                    "vocab_size": 0,
+                    "reset_states": null,
+                    "learning_rate": 0.01,
+                    "rnn_units": 64,
+                    "dropout_rate": null,
+                    "overwrite": true,
+                    "early_stopping": null,
+                    "gen_temp": null,
+                    "predict_batch_size": null,
+                    "validation_split": false,
+                    "dp": null,
+                    "dp_noise_multiplier": null,
+                    "dp_l2_norm_clip": null,
+                    "dp_microbatches": null,
+                    "early_stopping_min_delta": null,
+                    "max_training_time_seconds": 13800,
+                    "field_cluster_size": 20,
+                    "average_record_length_threshold": 250.0,
+                    "data_upsample_limit": 10000
+                },
+                "validators": {
+                    "in_set_count": 10,
+                    "pattern_count": 10,
+                    "datetime_formats": "infer",
+                    "use_numeric_iqr": false,
+                    "allow_empty_values": true,
+                    "open_close_chars": null
+                },
+                "generate": {
+                    "num_records": 5000,
+                    "max_invalid": null
+                },
+                "task": null,
+                "debug": {
+                    "invalid_record_cutoff": 40
+                },
+                "data_checks": {
+                    "strategy": "log"
+                },
+                "evaluate": {
+                    "correlation_columns": 75,
+                    "sqs_report_columns": 250,
+                    "sqs_report_rows": 5000,
+                    "mandatory_columns": null,
+                    "target": "y",
+                    "holdout": null,
+                    "metric": null,
+                    "models": null,
+                    "skip": false,
+                    "task": "classification"
+                },
+                "fallback": {
+                    "allow": true,
+                    "max_fallback_training_time_seconds": 300,
+                    "max_fallback_generation_time_seconds": 300
+                }
+            }
+        }
+    ],
+    "notifications": null,
+    "label_predictors": null
+}
+20:22:42  Starting LSTM model training... — num_epochs 100
+20:22:42  Loading training data
+20:22:42  Running pre-flight data checks on input data
+20:22:42  Training data loaded. — record_count 13, field_count 9, upsample_count 9987
+20:22:42  Training fallback model...
+20:22:49  Fallback model trained successfully
+20:22:51  Creating semantic validators and preparing training data
+20:22:58  Beginning ML model training
+20:23:05  Running training on 2 batches. — batch_sizes [3, 6]
+20:23:09  Tokenizing input data
+20:23:09  Shuffling input data
+20:23:11  Initializing synthetic model
+20:23:19  Training epoch complete. — epoch 0, accuracy 0.8174, loss 0.6331, val_accuracy 0, val_loss 0, batch 0
+20:23:23  Training epoch complete. — epoch 1, accuracy 0.9618, loss 0.0865, val_accuracy 0, val_loss 0, batch 0
+20:23:26  Training epoch complete. — epoch 2, accuracy 0.9628, loss 0.0793, val_accuracy 0, val_loss 0, batch 0
+20:23:29  Training epoch complete. — epoch 3, accuracy 0.9646, loss 0.0754, val_accuracy 0, val_loss 0, batch 0
+20:23:32  Training epoch complete. — epoch 4, accuracy 0.9661, loss 0.0719, val_accuracy 0, val_loss 0, batch 0
+20:23:35  Training epoch complete. — epoch 5, accuracy 0.966, loss 0.0707, val_accuracy 0, val_loss 0, batch 0
+20:23:39  Training epoch complete. — epoch 6, accuracy 0.9662, loss 0.0697, val_accuracy 0, val_loss 0, batch 0
+20:23:42  Training epoch complete. — epoch 7, accuracy 0.9661, loss 0.0687, val_accuracy 0, val_loss 0, batch 0
+20:23:45  Training epoch complete. — epoch 8, accuracy 0.9665, loss 0.0683, val_accuracy 0, val_loss 0, batch 0
+20:23:48  Training epoch complete. — epoch 9, accuracy 0.9661, loss 0.0682, val_accuracy 0, val_loss 0, batch 0
+20:23:51  Training epoch complete. — epoch 10, accuracy 0.9661, loss 0.0677, val_accuracy 0, val_loss 0, batch 0
+20:23:55  Training epoch complete. — epoch 11, accuracy 0.9663, loss 0.0674, val_accuracy 0, val_loss 0, batch 0
+20:23:58  Training epoch complete. — epoch 12, accuracy 0.9662, loss 0.0672, val_accuracy 0, val_loss 0, batch 0
+20:24:03  Training epoch complete. — epoch 13, accuracy 0.9662, loss 0.0669, val_accuracy 0, val_loss 0, batch 0
+20:24:06  Training epoch complete. — epoch 14, accuracy 0.9665, loss 0.0662, val_accuracy 0, val_loss 0, batch 0
+20:24:09  Training epoch complete. — epoch 15, accuracy 0.9664, loss 0.0668, val_accuracy 0, val_loss 0, batch 0
+20:24:13  Training epoch complete. — epoch 16, accuracy 0.9663, loss 0.0664, val_accuracy 0, val_loss 0, batch 0
+20:24:16  Training epoch complete. — epoch 17, accuracy 0.9663, loss 0.0665, val_accuracy 0, val_loss 0, batch 0
+20:24:19  Training epoch complete. — epoch 18, accuracy 0.9662, loss 0.0662, val_accuracy 0, val_loss 0, batch 0
+20:24:22  Training epoch complete. — epoch 19, accuracy 0.9662, loss 0.066, val_accuracy 0, val_loss 0, batch 0
+20:24:22  Tokenizing input data
+20:24:22  Shuffling input data
+20:24:25  Initializing synthetic model
+20:24:31  Training epoch complete. — epoch 0, accuracy 0.8413, loss 0.6063, val_accuracy 0, val_loss 0, batch 1
+20:24:35  Training epoch complete. — epoch 1, accuracy 0.9756, loss 0.0714, val_accuracy 0, val_loss 0, batch 1
+20:24:38  Training epoch complete. — epoch 2, accuracy 0.9765, loss 0.0641, val_accuracy 0, val_loss 0, batch 1
+20:24:42  Training epoch complete. — epoch 3, accuracy 0.9769, loss 0.0612, val_accuracy 0, val_loss 0, batch 1
+20:24:46  Training epoch complete. — epoch 4, accuracy 0.9771, loss 0.059, val_accuracy 0, val_loss 0, batch 1
+20:24:50  Training epoch complete. — epoch 5, accuracy 0.9773, loss 0.0576, val_accuracy 0, val_loss 0, batch 1
+20:24:54  Training epoch complete. — epoch 6, accuracy 0.9772, loss 0.0569, val_accuracy 0, val_loss 0, batch 1
+20:24:58  Training epoch complete. — epoch 7, accuracy 0.9775, loss 0.0559, val_accuracy 0, val_loss 0, batch 1
+20:25:01  Training epoch complete. — epoch 8, accuracy 0.9773, loss 0.0556, val_accuracy 0, val_loss 0, batch 1
+20:25:05  Training epoch complete. — epoch 9, accuracy 0.9774, loss 0.0554, val_accuracy 0, val_loss 0, batch 1
+20:25:09  Training epoch complete. — epoch 10, accuracy 0.9773, loss 0.0549, val_accuracy 0, val_loss 0, batch 1
+20:25:13  Training epoch complete. — epoch 11, accuracy 0.9776, loss 0.0541, val_accuracy 0, val_loss 0, batch 1
+20:25:17  Training epoch complete. — epoch 12, accuracy 0.9775, loss 0.0541, val_accuracy 0, val_loss 0, batch 1
+20:25:20  Training epoch complete. — epoch 13, accuracy 0.9775, loss 0.0538, val_accuracy 0, val_loss 0, batch 1
+20:25:24  Training epoch complete. — epoch 14, accuracy 0.9776, loss 0.0532, val_accuracy 0, val_loss 0, batch 1
+20:25:28  Training epoch complete. — epoch 15, accuracy 0.9776, loss 0.0532, val_accuracy 0, val_loss 0, batch 1
+20:25:32  Training epoch complete. — epoch 16, accuracy 0.9775, loss 0.0534, val_accuracy 0, val_loss 0, batch 1
+20:25:36  Training epoch complete. — epoch 17, accuracy 0.9775, loss 0.0529, val_accuracy 0, val_loss 0, batch 1
+20:25:41  Training epoch complete. — epoch 18, accuracy 0.9775, loss 0.0534, val_accuracy 0, val_loss 0, batch 1
+20:25:41  LSTM model training complete.
+20:25:41  Generating records... — num_records 5000, max_invalid 10000
+20:25:41  Generation in progress — current_valid_count 0, current_invalid_count 0, new_valid_count 0, new_invalid_count 0, completion_percent 0
+20:25:46  Generation in progress — current_valid_count 0, current_invalid_count 0, new_valid_count 0, new_invalid_count 0, completion_percent 0
+20:25:51  Generation in progress — current_valid_count 0, current_invalid_count 0, new_valid_count 0, new_invalid_count 0, completion_percent 0
+20:25:56  Generation in progress — current_valid_count 0, current_invalid_count 1, new_valid_count 0, new_invalid_count 1, completion_percent 0
+20:26:01  Generation in progress — current_valid_count 0, current_invalid_count 1, new_valid_count 0, new_invalid_count 0, completion_percent 0
+20:26:06  Generation in progress — current_valid_count 25, current_invalid_count 1, new_valid_count 25, new_invalid_count 0, completion_percent 0.5
+20:26:11  Generation in progress — current_valid_count 240, current_invalid_count 6, new_valid_count 215, new_invalid_count 5, completion_percent 4.8
+20:26:16  Generation in progress — current_valid_count 304, current_invalid_count 7, new_valid_count 64, new_invalid_count 1, completion_percent 6.08
+20:26:21  Generation in progress — current_valid_count 564, current_invalid_count 10, new_valid_count 260, new_invalid_count 3, completion_percent 11.28
+20:26:26  Generation in progress — current_valid_count 564, current_invalid_count 10, new_valid_count 0, new_invalid_count 0, completion_percent 11.28
+20:26:31  Generation in progress — current_valid_count 823, current_invalid_count 11, new_valid_count 259, new_invalid_count 1, completion_percent 16.46
+20:26:36  Generation in progress — current_valid_count 823, current_invalid_count 11, new_valid_count 0, new_invalid_count 0, completion_percent 16.46
+20:26:41  Generation in progress — current_valid_count 978, current_invalid_count 13, new_valid_count 155, new_invalid_count 2, completion_percent 19.56
+20:26:46  Generation in progress — current_valid_count 1207, current_invalid_count 15, new_valid_count 229, new_invalid_count 2, completion_percent 24.14
+20:26:51  Generation in progress — current_valid_count 1211, current_invalid_count 16, new_valid_count 4, new_invalid_count 1, completion_percent 24.22
+20:26:56  Generation in progress — current_valid_count 1461, current_invalid_count 18, new_valid_count 250, new_invalid_count 2, completion_percent 29.22
+20:27:01  Generation in progress — current_valid_count 1461, current_invalid_count 18, new_valid_count 0, new_invalid_count 0, completion_percent 29.22
+20:27:06  Generation in progress — current_valid_count 1711, current_invalid_count 19, new_valid_count 250, new_invalid_count 1, completion_percent 34.22
+20:27:11  Generation in progress — current_valid_count 1711, current_invalid_count 19, new_valid_count 0, new_invalid_count 0, completion_percent 34.22
+20:27:16  Generation in progress — current_valid_count 1905, current_invalid_count 21, new_valid_count 194, new_invalid_count 2, completion_percent 38.1
+20:27:21  Generation in progress — current_valid_count 1970, current_invalid_count 21, new_valid_count 65, new_invalid_count 0, completion_percent 39.4
+20:27:26  Generation in progress — current_valid_count 2229, current_invalid_count 24, new_valid_count 259, new_invalid_count 3, completion_percent 44.58
+20:27:31  Generation in progress — current_valid_count 2229, current_invalid_count 24, new_valid_count 0, new_invalid_count 0, completion_percent 44.58
+20:27:36  Generation in progress — current_valid_count 2482, current_invalid_count 29, new_valid_count 253, new_invalid_count 5, completion_percent 49.64
+20:27:41  Generation in progress — current_valid_count 2612, current_invalid_count 29, new_valid_count 130, new_invalid_count 0, completion_percent 52.24
+20:27:46  Generation in progress — current_valid_count 2737, current_invalid_count 29, new_valid_count 125, new_invalid_count 0, completion_percent 54.74
+20:27:51  Generation in progress — current_valid_count 2784, current_invalid_count 29, new_valid_count 47, new_invalid_count 0, completion_percent 55.68
+20:27:56  Generation in progress — current_valid_count 2946, current_invalid_count 31, new_valid_count 162, new_invalid_count 2, completion_percent 58.92
+20:28:01  Generation in progress — current_valid_count 3043, current_invalid_count 31, new_valid_count 97, new_invalid_count 0, completion_percent 60.86
+20:28:06  Generation in progress — current_valid_count 3181, current_invalid_count 33, new_valid_count 138, new_invalid_count 2, completion_percent 63.62
+20:28:11  Generation in progress — current_valid_count 3369, current_invalid_count 35, new_valid_count 188, new_invalid_count 2, completion_percent 67.38
+20:28:16  Generation in progress — current_valid_count 3441, current_invalid_count 36, new_valid_count 72, new_invalid_count 1, completion_percent 68.82
+20:28:21  Generation in progress — current_valid_count 3571, current_invalid_count 36, new_valid_count 130, new_invalid_count 0, completion_percent 71.42
+20:28:26  Generation in progress — current_valid_count 3699, current_invalid_count 39, new_valid_count 128, new_invalid_count 3, completion_percent 73.98
+20:28:31  Generation in progress — current_valid_count 3822, current_invalid_count 41, new_valid_count 123, new_invalid_count 2, completion_percent 76.44
+20:28:36  Generation in progress — current_valid_count 3947, current_invalid_count 41, new_valid_count 125, new_invalid_count 0, completion_percent 78.94
+20:28:41  Generation in progress — current_valid_count 4136, current_invalid_count 43, new_valid_count 189, new_invalid_count 2, completion_percent 82.72
+20:28:46  Generation in progress — current_valid_count 4196, current_invalid_count 43, new_valid_count 60, new_invalid_count 0, completion_percent 83.92
+20:28:51  Generation in progress — current_valid_count 4363, current_invalid_count 46, new_valid_count 167, new_invalid_count 3, completion_percent 87.26
+20:28:56  Generation in progress — current_valid_count 4517, current_invalid_count 49, new_valid_count 154, new_invalid_count 3, completion_percent 90.34
+20:29:01  Generation in progress — current_valid_count 4582, current_invalid_count 49, new_valid_count 65, new_invalid_count 0, completion_percent 91.64
+20:29:06  Generation in progress — current_valid_count 4776, current_invalid_count 52, new_valid_count 194, new_invalid_count 3, completion_percent 95.52
+20:29:11  Generation in progress — current_valid_count 4841, current_invalid_count 52, new_valid_count 65, new_invalid_count 0, completion_percent 96.82
+20:29:16  Generation in progress — current_valid_count 4994, current_invalid_count 56, new_valid_count 153, new_invalid_count 4, completion_percent 99.88
+20:29:17  Generation in progress — current_valid_count 5000, current_invalid_count 56, new_valid_count 6, new_invalid_count 0, completion_percent 100
+20:29:17  Preparing privacy filters
+20:29:21  Loaded 2 privacy filters
+20:29:21  Starting privacy filtering
+20:29:21  Privacy filtering removed 2 records, generating replacement records — filtered_outliers 0, filtered_similarity 2
+20:29:21  Generation in progress — current_valid_count 0, current_invalid_count 0, new_valid_count 0, new_invalid_count 0, completion_percent 0
+20:29:26  Generation in progress — current_valid_count 0, current_invalid_count 0, new_valid_count 0, new_invalid_count 0, completion_percent 0
+20:29:31  Generation in progress — current_valid_count 0, current_invalid_count 0, new_valid_count 0, new_invalid_count 0, completion_percent 0
+20:29:36  Generation in progress — current_valid_count 2, current_invalid_count 0, new_valid_count 2, new_invalid_count 0, completion_percent 100
+20:29:36  Privacy filtering complete.
+20:29:36  Generation complete. — num_records_success 5000, num_records_invalid 56
+20:29:36  Saving model archive
